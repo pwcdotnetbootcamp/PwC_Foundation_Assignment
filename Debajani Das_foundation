@@ -1,0 +1,161 @@
+E-Commerce
+
+using System;
+using System.Net.Http.Headers;
+using System.Security.Cryptography;
+
+namespace Prj1Day1
+{
+    public class user {
+        private bool role;
+        private string loginID;
+        private string Email;
+        public void verifyUser() {
+            Console.WriteLine("The user is verified!");
+        }
+    }
+    public class seller : user
+    {
+        private string id;
+        private string address;
+        private string phone;
+        private string Email;
+        private int sellerRating;
+        Product prod = new Product();
+        public void login()
+        {
+            Console.WriteLine("Logged in to seller's account");
+        }
+        public void register()
+        {
+            Console.WriteLine("Registered into seller's account");
+        }
+    }
+    public class Customer : user {
+         ShoppingCart shop = new ShoppingCart();
+         Reviews review = new Reviews();
+        Orders order = new Orders();
+        private string id;
+        private string address;
+        private string phone;
+        private string Email;
+        public void login()
+        {
+            Console.WriteLine("Logged in to Customer's account");
+        }
+        public void register()
+        {
+            Console.WriteLine("Registered to Customer's account");
+        }
+        public void updateProfile()
+        {
+            Console.WriteLine("Profile of the customer updated");
+        }
+
+
+    }
+    public class ShoppingCart
+    {
+        private Product prod;
+        private DateTime created;
+        public void addCartItem(){
+            Console.WriteLine("Item added in the cart");
+        }
+        public void checkOut(){
+            Console.WriteLine("Items in the cart checked out");
+        }
+        public void viewCartDetails() {
+            Console.WriteLine("Cart Items viewed");
+        }
+        public void updateQuantity(){
+            Console.WriteLine("Cart Items Updated");
+        }
+    }
+    public class Reviews{
+        private string reviewID;
+        private string customerID;
+        private string parentID;
+        private string productID;
+        private string reviewContent;
+        private int rating;
+        public void addReview()
+        {
+            Console.WriteLine("Review Added");
+        }
+        public void deleteReview()
+        {
+            Console.WriteLine("Review Deleted");
+        }
+        public void editReview()
+        {
+            Console.WriteLine("Review Edited");
+        }
+    }
+    public class Orders
+    {
+        private string id;
+        private string sellerID;
+        private string customerID;
+        private string productID;
+        private string totalAmount;
+        private DateTime orderDate;
+        private string address;
+        private DateTime deliveryDate;
+        private string DeliveryStatus;
+        Payment pay = new Payment();
+        public void placeOrder()
+        {
+            Console.WriteLine("Place the order");
+        }
+    }
+    public class Payment
+    {
+        private string id;
+        private string orderID;
+        private bool paid;
+        private int total;
+        private string details;
+        public void sendOtp()
+        {
+            Console.WriteLine("Sending Otp");
+        }
+        public void confirmTransaction()
+        {
+            Console.WriteLine("Transaction is confirmed");
+        }
+        public void getPaymentDetails()
+        {
+            Console.WriteLine("Payment details received");
+        }
+        public void makeTrasnsaction()
+        {
+            Console.WriteLine("Transaction is made");
+        }
+    }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+    public class Product
+    {
+        private string productID;
+        private string productName;
+        private int productCost;
+        private string sellerID;
+        private DateTime postedDate;
+        Reviews reviews = new Reviews();
+        Orders orders= new Orders(); 
+        public void addToCart()
+        {
+            Console.WriteLine("Product added to cart");
+        }
+        public void sellProduct()
+        {
+            Console.WriteLine("Product is sold");
+        }
+        public void getProductDetails()
+        {
+            Console.WriteLine("Get the product details");
+        }
+        public void buyProducts()
+        {
+            Console.WriteLine("Get the products to buy");
+        }
+    }
+}
