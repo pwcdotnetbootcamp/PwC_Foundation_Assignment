@@ -1,0 +1,281 @@
+using System;
+
+namespace Prj1Day1
+{
+    public class user {
+        private bool role;
+        private string loginID;
+        private string password;
+        public user() { }
+        public user(bool role, string loginID, string password)
+        {
+            this.role = role;
+            this.loginID = loginID;
+            this.password = password;
+        }
+        public void verifyUser(string login_user, string password_user) {
+            if(loginID == login_user && password== password_user)
+            Console.WriteLine("The user is verified!"+"given role is :"+role);
+        }
+    }
+    public class seller : user
+    {
+        private string id;
+        private string address;
+        private string phone;
+        private string Email;
+        private int sellerRating;
+        Product prod = new Product();
+        public seller() { }
+        public seller(string id, string address, string phone, string email, int sellerRating, Product prod)
+        {
+            this.id = id;
+            this.address = address;
+            this.phone = phone;
+            this.Email = email;
+            this.sellerRating = sellerRating;
+            this.prod = prod;
+        }
+        public seller(bool role, string loginID, string password) : base(role, loginID, password)
+        {
+        }
+        public void login(string id_emp)
+        {
+            if(id==id_emp)
+            Console.WriteLine("Logged in to seller's account");
+        }
+        public void register()
+        {
+            Console.WriteLine("Registered into seller's account");
+        }
+        public void updateProfile(string id, string address, string phone, string email, int sellerRating, Product prod)
+        {
+            this.id = id;
+            this.address = address;
+            this.phone = phone;
+            this.Email = email;
+            this.sellerRating = sellerRating;
+            this.prod = prod;
+        }
+    }
+    public class Customer : user {
+         ShoppingCart shop = new ShoppingCart();
+         Reviews review = new Reviews();
+        Orders order = new Orders();
+        private string id;
+        private string address;
+        private string phone;
+        private string Email;
+        public Customer() { }
+        public Customer(bool role, string loginID, string password) : base(role, loginID, password)
+        {
+        }
+
+        public Customer(ShoppingCart shop, Reviews review, Orders order, string id, string address, string phone, string email)
+        {
+            this.shop = shop;
+            this.review = review;
+            this.order = order;
+            this.id = id;
+            this.address = address;
+            this.phone = phone;
+            this.Email = email;
+        }
+
+        public void login(string id_emp , string email_emp)
+        {
+            if(id==id_emp && Email==email_emp)
+            Console.WriteLine("Logged in to Customer's account");
+        }
+        public void register(string id_emp, string email_emp, string address)
+        {
+            this.id=id_emp; ;
+            this.Email=email_emp;
+            this.address=address;
+            Console.WriteLine("Registered to Customer's account");
+        }
+        public void updateProfile(string id_emp, string email_emp, string address)
+        {
+            this.id = id_emp; ;
+            this.Email = email_emp;
+            this.address = address;
+            Console.WriteLine("Profile of the customer updated");
+        }
+
+
+    }
+    public class ShoppingCart
+    {
+        private Product prod;
+        private Date created;
+        public ShoppingCart (Date d, Product prod)
+        {
+            created = d;
+            this.prod = prod;
+        }
+        public void addCartItem(Product prod){
+            Console.WriteLine("Item added in the cart");
+        }
+        public void checkOut(Product prod){
+            Console.WriteLine("Items in the cart checked out");
+        }
+        public void viewCartDetails(Product prod, Date d) {
+            Console.WriteLine("Cart Items viewed");
+        }
+        public void updateQuantity(Product prod)
+        {
+            Console.WriteLine("Cart Items Updated");
+        }
+    }
+    public class Reviews{
+        private string reviewID;
+        private string customerID;
+        private string parentID;
+        private string productID;
+        private string reviewContent;
+        private int rating;
+
+        public Reviews(){}
+
+        public Reviews(string reviewID, string customerID, string parentID, string productID, string reviewContent, int rating)
+        {
+            this.reviewID = reviewID;
+            this.customerID = customerID;
+            this.parentID = parentID;
+            this.productID = productID;
+            this.reviewContent = reviewContent;
+            this.rating = rating;
+        }
+
+        public void addReview(string review_user)
+        {
+            this.reviewContent = review_user;
+            Console.WriteLine("Review Added");
+        }
+        public void deleteReview()
+        {
+            this.reviewContent = "";
+            Console.WriteLine("Review Deleted");
+        }
+        public void editReview(string edit_review)
+        {
+            this.reviewContent += edit_review;
+            Console.WriteLine("Review Edited");
+        }
+    }
+    public class Orders
+    {
+        private string id;
+        private string sellerID;
+        private string customerID;
+        private string productID;
+        private string totalAmount;
+        private Date orderDate;
+        private string address;
+        private Date deliveryDate;
+        private string DeliveryStatus;
+        Payment pay = new Payment();
+        public Orders() { }
+        public Orders(string id, string sellerID, string customerID, string productID, string totalAmount, Date orderDate, string address, Date deliveryDate, string deliveryStatus, Payment pay)
+        {
+            this.id = id;
+            this.sellerID = sellerID;
+            this.customerID = customerID;
+            this.productID = productID;
+            this.totalAmount = totalAmount;
+            this.orderDate = orderDate;
+            this.address = address;
+            this.deliveryDate = deliveryDate;
+            this.DeliveryStatus = deliveryStatus;
+            this.pay = pay;
+        }
+
+        public void placeOrder(String prod, string amt, Date del_d)
+        {
+            this.productID = prod;
+            this.totalAmount = amt;
+            this.orderDate = del_d;
+            Console.WriteLine("Place the order");
+        }
+    }
+    public class Payment
+    {
+        private string id;
+        private string orderID;
+        private bool paid;
+        private int total;
+        private string details;
+        public Payment() { }
+        public Payment(string id, string orderID, bool paid, int total, string details)
+        {
+            this.id = id;
+            this.orderID = orderID;
+            this.paid = paid;
+            this.total = total;
+            this.details = details;
+        }
+
+        public void sendOtp()
+        {
+            Console.WriteLine("Sending Otp");
+        }
+        public void confirmTransaction()
+        {
+            Console.WriteLine("Transaction is confirmed");
+        }
+        public void getPaymentDetails()
+        {
+            Console.WriteLine("Payment details received");
+        }
+        public void makeTrasnsaction()
+        {
+            Console.WriteLine("Transaction is made");
+        }
+    }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+    public class Product
+    {
+        private string productID;
+        private string productName;
+        private int productCost;
+        private string sellerID;
+        private DateTime postedDate;
+        Reviews reviews = new Reviews();
+        Orders orders= new Orders(); 
+        public Product() { }
+
+        public Product(string productID, string productName, int productCost, string sellerID, DateTime postedDate, Reviews reviews, Orders orders)
+        {
+            this.productID = productID;
+            this.productName = productName;
+            this.productCost = productCost;
+            this.sellerID = sellerID;
+            this.postedDate = postedDate;
+            this.reviews = reviews;
+            this.orders = orders;
+        }
+
+        public void addToCart(string id, string name)
+        {
+            this.productID = id;
+            this.productName = name;
+            Console.WriteLine("Product added to cart");
+        }
+        public void sellProduct(string id, string name, int cost)
+        {
+            this.sellerID = id;
+            this.productName = name;
+            this.productCost = cost;
+
+            Console.WriteLine("Product is sold");
+        }
+        public void getProductDetails(string id, string name)
+        {
+            Console.WriteLine("Get the product details"+id+name);
+        }
+        public void buyProducts(string id, string name)
+        {
+            Console.WriteLine("Get the products to buy"+id+name);
+        }
+    }
+
+}
