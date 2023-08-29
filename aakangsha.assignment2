@@ -1,0 +1,198 @@
+import java.util.*;
+class User {
+    private boolean role;
+    private String ID;
+    private String password;
+    public User(){
+
+    }
+    public User( boolean role, String lid, String pass){
+        this.role = role;
+        ID = lid;
+        password = pass;
+    }
+    private boolean verifyUser(){
+        if(loginID != null && password != null && role){
+            return true;
+        }
+        return false;
+    }
+}
+class Customer extends User{
+    public String id, address, phone, email;
+
+    public Customer(String i, String ad, String ph, String em){
+        this.id = i;
+        this.address = ad;
+        this.phone = ph;
+        this.email = em;
+    }
+    public Customer(String phone){
+        this.phone = phone;
+    }
+    public String login(String mail, String num){
+          //code        
+        
+   }
+    public String register(String addr, String mail, String num){
+         //code
+        }
+       
+    public void updateProfile(String addr, String mail, String num){
+        address = addr;
+        email = mail;
+        phone = num;
+    }
+    
+}
+
+
+class shoppingCart{
+    private Date created;
+    private Customer c;
+    public shoppingCart(Date d){
+        created = d;
+    }
+    public shoppingCart(){
+        //code
+    }
+    public void checkOut(){
+        System.out.println("Order summary : ");
+    }
+    public void viewCartDetails(){
+        System.out.println("Showing cart details : ");
+    }
+    public void updateQuantity(){
+        System.out.println("Quantity updated successfully...");
+    }
+    
+    
+}
+
+class Reviews {
+    private String reviewId;
+    private String customerId;
+    private String reviewContent;
+    private Int rating;
+    private String parentId;
+    private String productId;
+    private Customer customer;
+    public Reviews(String rid, String cid, String rc, Integer r, String pid, String prodId  ){
+        reviewId = rid;
+        customerId = cid;
+        reviewContent = rc;
+        rating = r;
+        parentId = pid;
+        productId = prodId;
+    }
+    public void addReview(){
+        //code to be written
+    }
+    public void deleteReview(){
+        //code todo
+    }
+    public void editReview(){
+        //code
+    }
+}
+class Orders{
+    private String id;
+    private String sellId;
+    private String cusId;
+    private String proId;
+    private String tAmt;
+    private Date oDate;
+    private String address;
+    private Date deliDate;
+    private String deliStatus;
+    private Customer c;
+    public Orders(String id, String sellId, String cusId, String proId, String tAmt, Date oDate, String address, Date deliDate, String deliStatus){
+        this.id = id;
+        this.sellId = sellId;
+        this.cusId = cusId;
+        this.proId = proId;
+        this.tAmt = tAmt;
+        this.oDate = oDate;
+        this.address = address;
+        this.deliDate = deliDate;
+        this.deliStatus = deliStatus;
+    }
+    
+
+    public void placeOrder(){
+//code todo
+    }
+    
+}
+
+class Product{
+    private String prodId;
+    private String prodName;
+    private Integer prodCost;
+    private String sellerID;
+    private Date postedDate;
+    private shoppingCart scart;
+    public Product(String pid, String pname, Integer pcost, String sid, Date pd, shoppingCart scart){
+        prodId = pid;
+        prodName = pname;
+        prodCost = pcost;
+        sellerID = sid;
+        postedDate = pd;
+        this.scart = scart;
+    }
+    public void addToCart(){
+      //code
+    }
+    public void sellProduct(){
+        //code
+    }
+    private void getProductDetails(t){
+        //code todo
+    }
+    private void buyProduct(){
+        //code
+    }
+}
+class Seller extends User{
+    private String id, address, phone, email;
+    private int sellerRating;
+
+    public Seller(String i, String ad, String ph, String em, int sr){
+        this.id = i;
+        this.address = ad;
+        this.phone = ph;
+        this.email = em;
+        sellerRating = sr;  
+    }
+    public String login(String mail, String num){
+       //code
+    }
+    public String register(){
+       //code   }
+    public void updateProfile(){
+        //code
+    }
+}
+class Payment{
+    private String id;
+    private String orderID;
+    private boolean paid;
+    private int total;
+    private String details;
+    private Orders o;
+    private Customer c;
+    private void sendOTP(){
+        //code
+    }
+    private String confirmTransaction(){
+        //code
+    }
+    private void getPaymentDetails(){
+        //code
+    }
+    private void makeTransaction(){
+       //code    }
+}
+}
+
+
