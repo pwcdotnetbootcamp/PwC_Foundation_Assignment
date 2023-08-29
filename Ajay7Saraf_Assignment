@@ -1,0 +1,555 @@
+ASSIGNMENT 2
+ 
+User.java
+public class User {
+    private boolean role;
+    private String loginID;
+    private String password;
+    
+    // Constructor
+    public User(boolean role, String loginID, String password) {
+        this.role = role;
+        this.loginID = loginID;
+        this.password = password;
+    }
+    
+    // Getters and Setters
+    public boolean isRole() {
+        return role;
+    }
+
+    public void setRole(boolean role) {
+        this.role = role;
+    }
+
+    public String getLoginID() {
+        return loginID;
+    }
+
+    public void setLoginID(String loginID) {
+        this.loginID = loginID;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void verifyUser() {
+        // Code to verify user
+        System.out.println("The user is verified successfully!!!");
+    }
+}
+Customer.java
+public class Customer extends User {
+    private String id;
+    private String address;
+    private String phone;
+    private String email;
+    
+    // Constructor
+    public Customer(String id, String address, String phone, String email) {
+        this.id = id;
+        this.address = address;
+        this.phone = phone;
+        this.email = email;
+    }
+    
+    // Getters and Setters
+    public String getId() {
+        return id;
+    }
+    
+    public void setId(String id) {
+        this.id = id;
+    }
+    
+    public String getAddress() {
+        return address;
+    }
+    
+    public void setAddress(String address) {
+        this.address = address;
+    }
+    
+    public String getPhone() {
+        return phone;
+    }
+    
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+    
+    public String getEmail() {
+        return email;
+    }
+    
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void login() {
+        // Code for customer login functionality
+        System.out.println("Logged in successfully!");
+    }
+
+    public void register() {
+        // Code for customer registration functionality
+        System.out.println("User registered Successfully!");
+    }
+
+    public void updateProfile() {
+        // Code for updating customer profile
+        System.out.println("Profile updated successfully!");
+    }
+}
+Seller.java
+public class Seller extends User {
+    private String id;
+    private String address;
+    private String phone;
+    private String email;
+    private int sellerRating;
+    
+    // Constructor
+    public Seller(String id, String address, String phone, String email, int sellerRating) {
+        this.id = id;
+        this.address = address;
+        this.phone = phone;
+        this.email = email;
+        this.sellerRating = sellerRating;
+    }
+    
+    // Getters and Setters
+    public String getId() {
+        return id;
+    }
+    
+    public void setId(String id) {
+        this.id = id;
+    }
+    
+    public String getAddress() {
+        return address;
+    }
+    
+    public void setAddress(String address) {
+        this.address = address;
+    }
+    
+    public String getPhone() {
+        return phone;
+    }
+    
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+    
+    public String getEmail() {
+        return email;
+    }
+    
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public int getSellerRating() {
+        return sellerRating;
+    }
+    
+    public void setSellerRating(int sellerRating) {
+        this.sellerRating = sellerRating;
+    }
+
+    public void login() {
+        // Code for customer login functionality
+        System.out.println("Logged in successfully!");
+    }
+
+    public void register() {
+        // Code for customer registration functionality
+        System.out.println("User registered Successfully!");
+    }
+
+    public void updateProfile() {
+        // Code for updating customer profile
+        System.out.println("Profile updated successfully!");
+    }
+}
+ShoppingCart.java
+import.java.util.Date;
+
+class ShoppingCart extends Customer {
+
+    public void c() {
+        Customer c = new Customer();   // Composition
+        c.login();
+    }
+
+    private Date created;
+
+    public Date getCreated() {
+        return created;
+    }
+
+    public void setCreated(Date created) {
+        this.created = created;
+    }
+
+    public void addCartItem() {
+        // Code to add an item to the shopping cart
+        System.out.println("Item added successfully!");
+    }
+
+    public void checkOut() {
+        // Code to process the checkout of the shopping cart
+        System.out.println("Let's checkout!");
+    }
+
+    public void viewCartDetails() {
+        // Code to display the details of the shopping cart
+        System.out.println("Let's view the cart details!");
+    }
+
+    public void updateQuantity() {
+        // Code to update the quantity of an item in the shopping cart
+        System.out.println("Let's update the quantity!");
+    }
+}
+Product.java
+import.java.util.Date;
+
+class Product extends Seller {
+
+    public void l() {
+        Seller l = new Seller();   // Composition
+        l.login();
+    }
+
+    private String productID;
+    private String productName;
+    private int productCost;
+    private String sellerID;
+    private Date postedDate;
+
+    // Getters and Setters
+    public String getProductID() {
+        return productID;
+    }
+    
+    public void setProductID(String productID) {
+        this.productID = productID;
+    }
+    
+    public String getProductName() {
+        return productName;
+    }
+    
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+    
+    public int getProductCost() {
+        return productCost;
+    }
+    
+    public void setProductCost(int productCost) {
+        this.productCost = productCost;
+    }
+
+    public String getSellerID() {
+        return sellerID;
+    }
+    
+    public void setSellerID(String sellerID) {
+        this.sellerID = sellerID;
+    }
+    
+    public Date getPostedDate() {
+        return postedDate;
+    }
+    
+    public void setPostedDate(Date postedDate) {
+        this.postedDate = postedDate;
+    }
+
+    public void addToCart() {
+        // Add the product to the cart
+        System.out.println("Added to cart successfully!");
+    }
+
+    public void sellProduct() {
+        // Sell the product
+        System.out.println("The product is being sold successfully!");
+    }
+
+    public void getProductDetails() {
+        // Retrieve and display the product details
+        System.out.println("Product details fetched successfully!");
+    }
+
+    public void buyProduct() {
+        // Buy the product
+        System.out.println("Product bought successfully!");
+    }
+}
+Reviews.java
+class Reviews extends Customer {
+
+    public void u() {
+        Customer u = new Customer();   // Composition
+        u.updateProfile();
+    }
+
+    private String reviewID;
+    private String customerID;
+    private String reviewContent;
+    private int rating;
+    private String parentID;
+    private String productID;
+
+    // Getters and Setters
+    public String getReviewID() {
+        return reviewID;
+    }
+
+    public void setReviewID(String reviewID) {
+	this.ReviewID = reviewID;
+    }
+
+    public String getCustomerID() {
+	return customerID;
+    }
+
+    public void setCustomerID(String customerID) {
+	this.customerID = customerID;
+    }
+
+    public String getReviewContent() {
+	return reviewContent;
+    }
+
+    public void setReviewContent(String reviewContent) {
+	this.reviewContent = reviewContent;
+    }
+
+    public int getRating() {
+	return rating;
+    }
+
+    public void setRating(int rating) {
+	this.rating = rating;
+    }
+
+    public String getParentID() {
+	return parentID;
+    }
+
+    public void setParentID(String parentID) {
+	this.parentID = parentID;
+    }
+
+    public String getProductID() {
+	return productID;
+    }
+
+    public void setProductID(String productID) {
+	this.productID = productID;
+    }
+
+    public void addReview() {
+        // Code to add a review
+        System.out.println("Review added successfully!");
+    }
+
+    public void deleteReview() {
+        // Code to delete a review
+        System.out.println("Review deleted successfully!");
+    }
+
+    public void editReview() {
+        // Code to edit a review
+        System.out.println("Review edited successfully!");
+    }
+}
+Payment.java
+class Payment extends Orders {
+
+    public void u() {
+        Customer u = new Customer();   // Composition
+        u.updateProfile();
+    }
+
+    private String id;
+    private String orderID;
+    private boolean paid;
+    private int total;
+    private String details;
+
+    // Getters and Setters
+    public String getId() {
+        return id;
+    }
+    
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getOrderID() {
+	return orderID;
+    }
+
+    public void setOrderID(String orderID) {
+	this.orderID = orderID;
+    }
+
+    public boolean isPaid() {
+        return paid;
+    }
+
+    public void setPaid(boolean paid) {
+        this.paid = paid;
+    }
+
+    public int getTotal() {
+	return total;
+    }
+
+    public void setTotal(int total) {
+	this.total = total;
+    }
+
+    public String getDetails() {
+	return details;
+    }
+
+    public void setDetails(String details) {
+	this.details = details;
+    }
+
+    public void sendOTP() {
+        // Code for sending OTP
+        System.out.println("OTP sent successfully!");
+    }
+
+    public void confirmTransaction() {
+        // Code for confirming the transaction
+        System.out.println("Transaction confirmed!");
+    }
+
+    public void getPaymentDetails() {
+        // Code for retrieving payment details
+        System.out.println("Payment details fetched successfully!");
+    }
+
+    public void makeTransaction() {
+        // Code for making the transaction
+        System.out.println("Transaction done successfully!");
+    }
+}
+Orders.java
+class Orders extends Customer {
+
+    public void p() {
+        Payment p = new Payment();   // Composition
+        p.placeOrder();
+    }
+
+    private String id;
+    private String sellerID;
+    private String customerID;
+    private String productID;
+    private String totalAmount;
+    private Date orderDate;
+    private String address;
+    private Date deliveredDate;
+    private String deliveryStatus;
+
+    // Getters and Setters
+    public String getId() {
+        return id;
+    }
+    
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getSellerID() {
+	return sellerID;
+    }
+
+    public void setSellerID(String sellerID) {
+	this.sellerID = sellerID;
+    }
+
+    public String getCustomerID() {
+	return customerID;
+    }
+
+    public void setCustomerID(String customerID) {
+	this.customerID = customerID;
+    }
+ 
+    public String getProductID() {
+	return productID;
+    }
+
+    public void setProductID(String productID) {
+	this.productID = productID;
+    }
+
+    public String getTotalAmount() {
+	return totalAmount;
+    }
+
+    public void setTotalAmount(String totalAmount) {
+	this.totalAmount = totalAmount;
+    }
+
+    public Date getOrderDate() {
+	return orderDate;
+    }
+
+    public void setOrderDate(Date orderDate) {
+	this.orderDate = orderDate;
+    }
+
+    public String getAddress() {
+	return address;
+    }
+
+    public void setAddress(String address) {
+	this.address = address;
+    }
+
+    public Date getDeliveredDate() {
+	return deliveredDate;
+    }
+
+    public void setDeliveredDate(Date deliveredDate) {
+	this.deliveredDate = deliveredDate;
+    }
+
+    public String getDeliveryStatus() {
+	return deliveryStatus;
+    }
+
+    public void setDeliveryStatus(String deliveryStatus) {
+	this.deliveryStatus = deliveryStatus;
+    }
+
+    public void placeOrder() {
+        // Code to place an order
+        System.out.println("Order placed successfully!");
+    }
+}
+
+Submitted by:
+Ajay Saraf
+PwC | Specialist | Advisory
+Mobile: +91 9589493196
+Email: ajay.saraf@pwc.com
+PricewaterhouseCoopers Private Limited
