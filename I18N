@@ -70,3 +70,19 @@ namespace GlobalPrj
         }
     }
 }
+
+
+-----------------------------------------------------------------------------------------
+
+
+ public void myDesigner(string s)
+ {
+     Thread.CurrentThread.CurrentUICulture= new System.Globalization.CultureInfo(s);
+     this.Controls.Clear();
+     InitializeComponent();
+     ResourceManager rm = new ResourceManager("GlobalPrj.Form1", typeof(Form1).Assembly);
+     mess = rm.GetString("MyLanguage");
+     MessageBox.Show(mess);
+ }
+
+-----------------------------------------------------------------------------
