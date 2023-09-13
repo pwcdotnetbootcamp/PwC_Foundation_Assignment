@@ -90,3 +90,59 @@ namespace GlobalPrj
 myDesigner(Thread.CurrentThread.CurrentUICulture.Name);
 
 ----------------------------------------------------------------------
+
+
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Globalization;
+using System.Linq;
+using System.Resources;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace GlobalPrj
+{
+    public partial class Form1 : Form
+    {
+        string mess;
+        public void myDesigner(string s)
+        {
+            Thread.CurrentThread.CurrentUICulture= new System.Globalization.CultureInfo(s);
+            this.Controls.Clear();
+            InitializeComponent();
+            ResourceManager rm = new ResourceManager("GlobalPrj.Form1", typeof(Form1).Assembly);
+            mess = rm.GetString("MyLanguage");
+            MessageBox.Show(mess);
+        }
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            myDesigner("hi-IN");
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            myDesigner("en");
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+           // MessageBox.Show(Thread.CurrentThread.CurrentUICulture.Name);   Wont work
+            MessageBox.Show(Thread.CurrentThread.CurrentCulture.Name); //windows system locale doesnt support UI culture and unicode culture.
+            myDesigner(Thread.CurrentThread.CurrentCulture.Name);
+        }
+    }
+}
+
+
+---------------------------------------------------------------------------------------------------
