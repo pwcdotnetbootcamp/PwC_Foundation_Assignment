@@ -1,0 +1,14 @@
+string
+date 
+currency
+3 most imp effects in i18N
+--------------------------------------------------------------
+Resources1.resx
+
+button1.Text	English
+button3.Text	Hindi
+button2.Text	Save
+MyLanguage	  The form language has been changed
+MyMessage	    Value added
+
+---------------------------------------------------------------
