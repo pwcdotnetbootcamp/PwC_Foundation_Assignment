@@ -12,3 +12,15 @@ MyLanguage	  The form language has been changed
 MyMessage	    Value added
 
 ---------------------------------------------------------------
+
+
+Form1.hi-IN.resx
+
+button1.Text	अंग्रेज़ी
+button3.Text	हिंदी
+button2.Text	सहेजें
+MyLanguage	फॉर्म की भाषा बदल दी गई है
+MyMessage	वर्धित मूल्य
+
+
+-------------------------------------------------------------------
